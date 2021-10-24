@@ -2,7 +2,7 @@
   <div id="app">
     <div id="wrapper">
       <textarea id="source" placeholder="Source" v-model="source"></textarea>
-      <div id="output" v-html="source"></div>
+      <div id="output" v-html="format"></div>
     </div>
     
   </div>
@@ -14,7 +14,12 @@ export default {
   name: 'App',
   data: () => ({
     source: '',
-  })
+  }),
+  computed: {
+    format() {
+      return this.source.replace(/(?:\r\n|\r|\n)/g, '<br />')
+    }
+  },
 }
 </script>
 
