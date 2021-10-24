@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <div id="wrapper">
-      <textarea id="source" placeholder="Source"></textarea>
-      <button id="submit">Submit</button>
-      <div id="title" v-html="title"></div>
-      <div id="story" v-html="story"></div>
+      <textarea id="source" placeholder="Source" v-model="source"></textarea>
+      <div id="output" v-html="output"></div>
     </div>
     
   </div>
@@ -16,8 +14,7 @@ export default {
   name: 'App',
   data: () => ({
     source: '',
-    title: '',
-    story: '',
+    output: '',
   })
 }
 </script>
@@ -43,10 +40,7 @@ export default {
   outline: none;
   margin-bottom: 5px;
 }
-#submit {
-  margin-bottom: 10px;
-}
-#title, #story {
+#output {
   width: 100%;
   padding: 2px;
   border: 1px solid #000;
