@@ -2,7 +2,7 @@
   <div id="app">
     <div id="wrapper">
       <textarea id="source" placeholder="Source" v-model="source"></textarea>
-      <div id="output" v-html="output"></div>
+      <div id="output" v-html="source"></div>
     </div>
     
   </div>
@@ -14,7 +14,6 @@ export default {
   name: 'App',
   data: () => ({
     source: '',
-    output: '',
   })
 }
 </script>
