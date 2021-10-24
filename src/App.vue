@@ -17,7 +17,8 @@ export default {
   }),
   computed: {
     format() {
-      return this.source.replace(/(?:\r\n|\r|\n)/g, '<br />')
+      console.log(this.source.replace(/\r/g, '<br />'))
+      return this.source.replace(/\r/g, '<br />')
     }
   },
 }
@@ -49,5 +50,6 @@ export default {
   padding: 2px;
   border: 1px solid #000;
   margin-bottom: 10px;
+  white-space: pre-wrap;
 }
 </style>
