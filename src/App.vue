@@ -2,23 +2,24 @@
   <div id="app">
     <div id="wrapper">
       <textarea id="source" placeholder="Source" v-model="source"></textarea>
-      <div id="output" v-html="format"></div>
+      <p id="output" v-html="format(source)"></p>
     </div>
-    
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'App',
   data: () => ({
     source: '',
+    output: '',
   }),
-  computed: {
-    format() {
-      console.log(this.source.replace(/\r/g, '<br />'))
-      return this.source.replace(/\r/g, '<br />')
+  methods: {
+    format(source) {
+      let output = source.replace(/\\n/g, '<br />')
+      output = output.replace(/\\r/g, '')
+      output = output.replace(/\\/g, '')
+      return output
     }
   },
 }
@@ -44,6 +45,9 @@ export default {
   max-height: 300px;
   outline: none;
   margin-bottom: 5px;
+}
+#submit {
+  margin: 5px 0;
 }
 #output {
   width: 100%;
